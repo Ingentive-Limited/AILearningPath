@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dUiOaBRwR7M=",
+  "success": true,
+  "projectFilePath": "/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/TodoApp.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/martynprice/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

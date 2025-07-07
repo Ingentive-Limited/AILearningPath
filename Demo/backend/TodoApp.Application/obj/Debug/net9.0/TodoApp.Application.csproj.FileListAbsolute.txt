@@ -1,0 +1,15 @@
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.deps.json
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.dll
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/bin/Debug/net9.0/TodoApp.Application.pdb
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/bin/Debug/net9.0/TodoApp.Domain.dll
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/bin/Debug/net9.0/TodoApp.Domain.pdb
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.csproj.AssemblyReference.cache
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.AssemblyInfoInputs.cache
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.AssemblyInfo.cs
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.csproj.CoreCompileInputs.cache
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp..05D78BBE.Up2Date
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.dll
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/refint/TodoApp.Application.dll
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/TodoApp.Application.pdb
+/Users/martynprice/Repos/KiloCodeDemo/Demo/backend/TodoApp.Application/obj/Debug/net9.0/ref/TodoApp.Application.dll
