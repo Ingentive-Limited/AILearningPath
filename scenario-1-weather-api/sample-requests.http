@@ -1,0 +1,227 @@
+# Weather API Sample Requests
+# Use this file with REST Client extension in VS Code or similar HTTP client
+
+### Variables
+@baseUrl = https://localhost:7xxx
+@apiVersion = v1
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get all weather readings
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+Accept: application/json
+
+### Get all weather readings with location filter
+GET {{baseUrl}}/api/{{apiVersion}}/weather?location=London
+Accept: application/json
+
+### Get specific weather reading by ID
+GET {{baseUrl}}/api/{{apiVersion}}/weather/1
+Accept: application/json
+
+### Get latest weather reading for a specific city
+GET {{baseUrl}}/api/{{apiVersion}}/weather/location/London
+Accept: application/json
+
+### Get weather summary statistics
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+Accept: application/json
+
+### Create new weather reading
+POST {{baseUrl}}/api/{{apiVersion}}/weather
+Content-Type: application/json
+
+{
+  "location": "New York",
+  "temperature": 22.5,
+  "humidity": 65,
+  "pressure": 1013.25,
+  "description": "Partly cloudy",
+  "timestamp": "2024-01-15T14:30:00Z"
+}
+
+### Create weather reading with validation errors (for testing)
+POST {{baseUrl}}/api/{{apiVersion}}/weather
+Content-Type: application/json
+
+{
+  "location": "",
+  "temperature": -500,
+  "humidity": 150,
+  "pressure": -100,
+  "description": "",
+  "timestamp": "invalid-date"
+}
+
+### Update existing weather reading
+PUT {{baseUrl}}/api/{{apiVersion}}/weather/1
+Content-Type: application/json
+
+{
+  "location": "London",
+  "temperature": 18.0,
+  "humidity": 70,
+  "pressure": 1015.50,
+  "description": "Light rain",
+  "timestamp": "2024-01-15T15:00:00Z"
+}
+
+### Partial update (PATCH) - if implemented
+PATCH {{baseUrl}}/api/{{apiVersion}}/weather/1
+Content-Type: application/json
+
+{
+  "temperature": 20.0,
+  "description": "Sunny"
+}
+
+### Delete weather reading
+DELETE {{baseUrl}}/api/{{apiVersion}}/weather/1
+
+### Test rate limiting (send multiple requests quickly)
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+
+### Test caching (same request multiple times)
+GET {{baseUrl}}/api/{{apiVersion}}/weather/location/London
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather/location/London
+
+### Advanced filtering examples (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather?location=London&minTemperature=15&maxTemperature=25
+Accept: application/json
+
+### Pagination example (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather?page=1&pageSize=10
+Accept: application/json
+
+### Sorting example (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather?sortBy=timestamp&sortOrder=desc
+Accept: application/json
+
+### Date range filtering (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather?startDate=2024-01-01&endDate=2024-01-31
+Accept: application/json
+
+### Bulk operations (if implemented)
+POST {{baseUrl}}/api/{{apiVersion}}/weather/bulk
+Content-Type: application/json
+
+[
+  {
+    "location": "Paris",
+    "temperature": 16.5,
+    "humidity": 60,
+    "pressure": 1012.0,
+    "description": "Overcast",
+    "timestamp": "2024-01-15T16:00:00Z"
+  },
+  {
+    "location": "Berlin",
+    "temperature": 12.0,
+    "humidity": 75,
+    "pressure": 1018.5,
+    "description": "Light snow",
+    "timestamp": "2024-01-15T16:00:00Z"
+  }
+]
+
+### Export data (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather/export?format=csv
+Accept: text/csv
+
+### Weather alerts (if implemented)
+GET {{baseUrl}}/api/{{apiVersion}}/weather/alerts
+Accept: application/json
+
+### API Documentation
+GET {{baseUrl}}/swagger/index.html
+
+### OpenAPI specification
+GET {{baseUrl}}/swagger/v1/swagger.json
+Accept: application/json
+
+### Test error handling - Not Found
+GET {{baseUrl}}/api/{{apiVersion}}/weather/999999
+Accept: application/json
+
+### Test error handling - Invalid route
+GET {{baseUrl}}/api/{{apiVersion}}/invalid-endpoint
+Accept: application/json
+
+### Test CORS (if configured)
+OPTIONS {{baseUrl}}/api/{{apiVersion}}/weather
+Origin: http://localhost:3000
+Access-Control-Request-Method: GET
+Access-Control-Request-Headers: Content-Type
+
+### Performance test - Multiple concurrent requests
+# Run these simultaneously to test performance
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+
+###
+GET {{baseUrl}}/api/{{apiVersion}}/weather/summary
+
+### Test with different Accept headers
+GET {{baseUrl}}/api/{{apiVersion}}/weather/1
+Accept: application/xml
+
+### Test with compression
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+Accept: application/json
+Accept-Encoding: gzip, deflate
+
+### Authentication test (if JWT is implemented)
+# First, get a token (adjust endpoint as needed)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+### Use the token for authenticated requests
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+Accept: application/json
+
+### Test API versioning
+GET {{baseUrl}}/api/v2/weather
+Accept: application/json
+
+### Test with custom headers
+GET {{baseUrl}}/api/{{apiVersion}}/weather
+Accept: application/json
+X-Client-Version: 1.0.0
+X-Request-ID: test-request-123
+
+### Monitoring and metrics (if implemented)
+GET {{baseUrl}}/metrics
+Accept: text/plain
+
+### Application info
+GET {{baseUrl}}/info
+Accept: application/json
