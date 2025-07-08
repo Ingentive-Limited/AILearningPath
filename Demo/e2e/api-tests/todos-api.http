@@ -1,0 +1,399 @@
+### Todo API Tests
+### Base URL: http://localhost:5000/api
+
+### Variables
+@baseUrl = http://localhost:5000/api
+@todoId = {{createTodo.response.body.id}}
+@completedTodoId = {{createCompletedTodo.response.body.id}}
+
+### Health Check - Verify API is running
+GET {{baseUrl}}/todos
+Accept: application/json
+
+###
+
+### 1. CREATE TODO TESTS
+
+### Create a simple todo
+# @name createTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Complete API Testing",
+  "description": "Write comprehensive API tests for the todo application",
+  "priority": "high",
+  "dueDate": "2025-01-15T00:00:00Z"
+}
+
+### Create todo with minimal data (only title)
+# @name createMinimalTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Minimal Todo"
+}
+
+### Create todo with all fields
+# @name createFullTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Full Featured Todo",
+  "description": "This todo has all possible fields filled out for comprehensive testing",
+  "priority": "medium",
+  "dueDate": "2025-02-01T00:00:00Z"
+}
+
+### Create todo for completion testing
+# @name createCompletedTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Todo to be Completed",
+  "description": "This todo will be marked as completed",
+  "priority": "low",
+  "dueDate": "2025-01-20T00:00:00Z"
+}
+
+###
+
+### 2. VALIDATION TESTS
+
+### Create todo with empty title (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": "Todo with empty title",
+  "priority": "medium"
+}
+
+### Create todo with title too long (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "This is a very long title that exceeds the maximum allowed length of 200 characters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "description": "Title too long",
+  "priority": "medium"
+}
+
+### Create todo with invalid priority (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Priority Todo",
+  "description": "Testing invalid priority value",
+  "priority": "urgent"
+}
+
+### Create todo with past due date (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Past Due Date Todo",
+  "description": "Testing past due date",
+  "priority": "medium",
+  "dueDate": "2020-01-01T00:00:00Z"
+}
+
+### Create todo with invalid date format (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Date Format Todo",
+  "description": "Testing invalid date format",
+  "priority": "medium",
+  "dueDate": "invalid-date"
+}
+
+### Create todo with description too long (should fail)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Long Description Todo",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. This description is intentionally very long to test the validation limit of 1000 characters.",
+  "priority": "medium"
+}
+
+###
+
+### 3. READ/GET TESTS
+
+### Get all todos (default)
+GET {{baseUrl}}/todos
+Accept: application/json
+
+### Get all todos with status filter - active
+GET {{baseUrl}}/todos?status=active
+Accept: application/json
+
+### Get all todos with status filter - completed
+GET {{baseUrl}}/todos?status=completed
+Accept: application/json
+
+### Get all todos with priority filter - high
+GET {{baseUrl}}/todos?priority=high
+Accept: application/json
+
+### Get all todos with priority filter - medium
+GET {{baseUrl}}/todos?priority=medium
+Accept: application/json
+
+### Get all todos with priority filter - low
+GET {{baseUrl}}/todos?priority=low
+Accept: application/json
+
+### Get todos with search query
+GET {{baseUrl}}/todos?search=API
+Accept: application/json
+
+### Get todos with multiple filters
+GET {{baseUrl}}/todos?status=active&priority=high&search=Complete
+Accept: application/json
+
+### Get todos sorted by due date ascending
+GET {{baseUrl}}/todos?sortBy=dueDate&sortDirection=asc
+Accept: application/json
+
+### Get todos sorted by due date descending
+GET {{baseUrl}}/todos?sortBy=dueDate&sortDirection=desc
+Accept: application/json
+
+### Get todos sorted by priority descending (high to low)
+GET {{baseUrl}}/todos?sortBy=priority&sortDirection=desc
+Accept: application/json
+
+### Get todos sorted by creation date descending (newest first)
+GET {{baseUrl}}/todos?sortBy=createdAt&sortDirection=desc
+Accept: application/json
+
+### Get todos sorted by title ascending
+GET {{baseUrl}}/todos?sortBy=title&sortDirection=asc
+Accept: application/json
+
+### Get single todo by ID
+GET {{baseUrl}}/todos/{{todoId}}
+Accept: application/json
+
+### Get non-existent todo (should return 404)
+GET {{baseUrl}}/todos/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+### Get todo with invalid ID format (should return 400)
+GET {{baseUrl}}/todos/invalid-id
+Accept: application/json
+
+###
+
+### 4. UPDATE TESTS
+
+### Update todo title
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Updated API Testing Task",
+  "description": "Write comprehensive API tests for the todo application",
+  "status": "active",
+  "priority": "high",
+  "dueDate": "2025-01-15T00:00:00Z"
+}
+
+### Update todo description
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Updated API Testing Task",
+  "description": "Updated description: Write comprehensive API tests for the todo application with full coverage",
+  "status": "active",
+  "priority": "high",
+  "dueDate": "2025-01-15T00:00:00Z"
+}
+
+### Update todo priority
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Updated API Testing Task",
+  "description": "Updated description: Write comprehensive API tests for the todo application with full coverage",
+  "status": "active",
+  "priority": "medium",
+  "dueDate": "2025-01-15T00:00:00Z"
+}
+
+### Mark todo as completed
+PUT {{baseUrl}}/todos/{{completedTodoId}}
+Content-Type: application/json
+
+{
+  "title": "Todo to be Completed",
+  "description": "This todo will be marked as completed",
+  "status": "completed",
+  "priority": "low",
+  "dueDate": "2025-01-20T00:00:00Z"
+}
+
+### Update todo due date
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Updated API Testing Task",
+  "description": "Updated description: Write comprehensive API tests for the todo application with full coverage",
+  "status": "active",
+  "priority": "medium",
+  "dueDate": "2025-01-25T00:00:00Z"
+}
+
+### Remove due date from todo
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Updated API Testing Task",
+  "description": "Updated description: Write comprehensive API tests for the todo application with full coverage",
+  "status": "active",
+  "priority": "medium",
+  "dueDate": null
+}
+
+### Update non-existent todo (should return 404)
+PUT {{baseUrl}}/todos/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{
+  "title": "Non-existent Todo",
+  "description": "This should fail",
+  "status": "active",
+  "priority": "medium"
+}
+
+### Update todo with invalid data (empty title)
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": "Invalid update",
+  "status": "active",
+  "priority": "medium"
+}
+
+### Update todo with invalid status
+PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Invalid Status Update",
+  "description": "Testing invalid status",
+  "status": "invalid",
+  "priority": "medium"
+}
+
+###
+
+### 5. DELETE TESTS
+
+### Delete single todo
+DELETE {{baseUrl}}/todos/{{todoId}}
+
+### Delete non-existent todo (should return 404)
+DELETE {{baseUrl}}/todos/00000000-0000-0000-0000-000000000000
+
+### Delete todo with invalid ID format (should return 400)
+DELETE {{baseUrl}}/todos/invalid-id
+
+### Bulk delete completed todos
+DELETE {{baseUrl}}/todos/completed
+
+###
+
+### 6. EDGE CASES AND STRESS TESTS
+
+### Create todo with Unicode characters
+# @name unicodeTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Unicode Todo: 🚀 测试 العربية Ελληνικά",
+  "description": "Testing Unicode support: 🎯 中文 العربية Ελληνικά русский",
+  "priority": "medium"
+}
+
+### Create todo with special characters
+# @name specialCharsTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Special Chars: !@#$%^&*()_+-=[]{}|;':\",./<>?",
+  "description": "Testing special characters in content",
+  "priority": "low"
+}
+
+### Create todo with HTML content (should be escaped)
+# @name htmlTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "<script>alert('XSS')</script>HTML Todo",
+  "description": "<b>Bold</b> and <i>italic</i> HTML content",
+  "priority": "high"
+}
+
+### Test concurrent updates (run multiple times quickly)
+PUT {{baseUrl}}/todos/{{unicodeTodo.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update Test 1",
+  "description": "Testing concurrent updates",
+  "status": "active",
+  "priority": "high"
+}
+
+### Verify final state after all operations
+GET {{baseUrl}}/todos
+Accept: application/json
+
+###
+
+### 7. CLEANUP - Delete test todos
+### (Run these at the end to clean up test data)
+
+DELETE {{baseUrl}}/todos/{{createMinimalTodo.response.body.id}}
+
+###
+
+DELETE {{baseUrl}}/todos/{{createFullTodo.response.body.id}}
+
+###
+
+DELETE {{baseUrl}}/todos/{{unicodeTodo.response.body.id}}
+
+###
+
+DELETE {{baseUrl}}/todos/{{specialCharsTodo.response.body.id}}
+
+###
+
+DELETE {{baseUrl}}/todos/{{htmlTodo.response.body.id}}
+
+###
+
+### Final cleanup - bulk delete any remaining completed todos
+DELETE {{baseUrl}}/todos/completed

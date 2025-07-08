@@ -1,0 +1,285 @@
+### Performance and Load Testing for Todo API
+### Base URL: http://localhost:5000/api
+
+@baseUrl = http://localhost:5000/api
+
+### 1. BULK OPERATIONS PERFORMANCE
+
+### Create multiple todos quickly (simulate bulk creation)
+# @name bulkTodo1
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Bulk Todo 1",
+  "description": "Performance test todo 1",
+  "priority": "high"
+}
+
+### 
+# @name bulkTodo2
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Bulk Todo 2",
+  "description": "Performance test todo 2",
+  "priority": "medium"
+}
+
+### 
+# @name bulkTodo3
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Bulk Todo 3",
+  "description": "Performance test todo 3",
+  "priority": "low"
+}
+
+### 
+# @name bulkTodo4
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Bulk Todo 4",
+  "description": "Performance test todo 4",
+  "priority": "high"
+}
+
+### 
+# @name bulkTodo5
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Bulk Todo 5",
+  "description": "Performance test todo 5",
+  "priority": "medium"
+}
+
+### Test rapid GET requests
+GET {{baseUrl}}/todos
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?status=active
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?priority=high
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?search=Bulk
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?sortBy=createdAt&sortDirection=desc
+Accept: application/json
+
+### 2. LARGE PAYLOAD TESTS
+
+### Create todo with maximum allowed title length (200 chars)
+# @name maxTitleTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "This is a test todo with exactly 200 characters in the title field to test the maximum allowed length validation and ensure the system handles it properly without any issues or errors occurring during processing",
+  "description": "Testing maximum title length",
+  "priority": "medium"
+}
+
+### Create todo with maximum allowed description length (1000 chars)
+# @name maxDescTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Maximum Description Test",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur test.",
+  "priority": "low"
+}
+
+### 3. CONCURRENT OPERATIONS
+
+### Rapid updates to the same todo (test concurrency handling)
+PUT {{baseUrl}}/todos/{{bulkTodo1.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update 1",
+  "description": "First concurrent update",
+  "status": "active",
+  "priority": "high"
+}
+
+###
+PUT {{baseUrl}}/todos/{{bulkTodo1.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update 2",
+  "description": "Second concurrent update",
+  "status": "active",
+  "priority": "medium"
+}
+
+###
+PUT {{baseUrl}}/todos/{{bulkTodo1.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update 3",
+  "description": "Third concurrent update",
+  "status": "completed",
+  "priority": "low"
+}
+
+### 4. COMPLEX QUERIES PERFORMANCE
+
+### Complex query with multiple filters and sorting
+GET {{baseUrl}}/todos?status=active&priority=high&search=test&sortBy=dueDate&sortDirection=asc
+Accept: application/json
+
+### Query with search across large dataset
+GET {{baseUrl}}/todos?search=performance
+Accept: application/json
+
+### Query with multiple sort operations
+GET {{baseUrl}}/todos?sortBy=priority&sortDirection=desc
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?sortBy=title&sortDirection=asc
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?sortBy=createdAt&sortDirection=desc
+Accept: application/json
+
+### 5. STRESS TEST SCENARIOS
+
+### Rapid creation and deletion cycle
+# @name stressTodo1
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Stress Test Todo 1",
+  "description": "Will be deleted immediately",
+  "priority": "medium"
+}
+
+###
+DELETE {{baseUrl}}/todos/{{stressTodo1.response.body.id}}
+
+### 
+# @name stressTodo2
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Stress Test Todo 2",
+  "description": "Will be deleted immediately",
+  "priority": "high"
+}
+
+###
+DELETE {{baseUrl}}/todos/{{stressTodo2.response.body.id}}
+
+### 6. MEMORY AND RESOURCE TESTS
+
+### Create todos with varying payload sizes
+# @name smallTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Small",
+  "priority": "low"
+}
+
+###
+# @name mediumTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Medium sized todo with more content",
+  "description": "This todo has a moderate amount of content to test memory usage with medium-sized payloads",
+  "priority": "medium"
+}
+
+###
+# @name largeTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Large todo with extensive content and detailed information",
+  "description": "This is a large todo item with extensive description content designed to test how the system handles larger payloads and memory allocation. It contains detailed information about various aspects of the task, including background context, specific requirements, expected outcomes, and additional notes that might be relevant to the completion of this particular todo item. The purpose is to simulate real-world usage where users might create detailed todo items with comprehensive information.",
+  "priority": "high",
+  "dueDate": "2025-01-30T00:00:00Z"
+}
+
+### 7. RESPONSE TIME BENCHMARKS
+
+### Measure response time for different operations
+GET {{baseUrl}}/todos
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos/{{largeTodo.response.body.id}}
+Accept: application/json
+
+###
+PUT {{baseUrl}}/todos/{{largeTodo.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Updated Large Todo",
+  "description": "Updated description for performance testing",
+  "status": "active",
+  "priority": "medium",
+  "dueDate": "2025-02-15T00:00:00Z"
+}
+
+### 8. CLEANUP PERFORMANCE TESTS
+
+### Bulk delete performance test
+DELETE {{baseUrl}}/todos/completed
+
+### Individual delete performance
+DELETE {{baseUrl}}/todos/{{bulkTodo2.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{bulkTodo3.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{bulkTodo4.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{bulkTodo5.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{maxTitleTodo.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{maxDescTodo.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{smallTodo.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{mediumTodo.response.body.id}}
+
+###
+DELETE {{baseUrl}}/todos/{{largeTodo.response.body.id}}
+
+### Final verification - should be empty or minimal
+GET {{baseUrl}}/todos
+Accept: application/json

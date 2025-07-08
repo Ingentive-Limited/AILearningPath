@@ -1,0 +1,394 @@
+### Error Handling and Edge Cases for Todo API
+### Base URL: http://localhost:5000/api
+
+@baseUrl = http://localhost:5000/api
+
+### 1. HTTP METHOD ERRORS
+
+### Method not allowed - PATCH on todos collection
+PATCH {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Should not work"
+}
+
+### Method not allowed - PUT on todos collection
+PUT {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Should not work"
+}
+
+### Method not allowed - POST on specific todo
+POST {{baseUrl}}/todos/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "title": "Should not work"
+}
+
+### 2. MALFORMED REQUEST TESTS
+
+### Invalid JSON syntax
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid JSON",
+  "description": "Missing closing quote and comma
+  "priority": "medium"
+}
+
+### Missing Content-Type header
+POST {{baseUrl}}/todos
+
+{
+  "title": "No Content-Type",
+  "description": "This request has no Content-Type header",
+  "priority": "medium"
+}
+
+### Wrong Content-Type
+POST {{baseUrl}}/todos
+Content-Type: text/plain
+
+{
+  "title": "Wrong Content-Type",
+  "description": "This should fail",
+  "priority": "medium"
+}
+
+### Empty request body
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+### Null request body
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+null
+
+### 3. VALIDATION ERROR SCENARIOS
+
+### Missing required title field
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "description": "No title provided",
+  "priority": "medium"
+}
+
+### Null title
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": null,
+  "description": "Null title",
+  "priority": "medium"
+}
+
+### Whitespace-only title
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "   ",
+  "description": "Whitespace title",
+  "priority": "medium"
+}
+
+### Invalid priority values
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Priority 1",
+  "priority": "urgent"
+}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Priority 2",
+  "priority": "critical"
+}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Priority 3",
+  "priority": 123
+}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Priority 4",
+  "priority": null
+}
+
+### Invalid status values (for updates)
+# @name validTodoForUpdate
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Valid Todo for Update Tests",
+  "description": "This will be used for invalid update tests",
+  "priority": "medium"
+}
+
+###
+PUT {{baseUrl}}/todos/{{validTodoForUpdate.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Invalid Status Update",
+  "description": "Testing invalid status",
+  "status": "pending",
+  "priority": "medium"
+}
+
+###
+PUT {{baseUrl}}/todos/{{validTodoForUpdate.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Invalid Status Update 2",
+  "description": "Testing invalid status",
+  "status": "in-progress",
+  "priority": "medium"
+}
+
+### Invalid date formats
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Date 1",
+  "description": "Testing invalid date format",
+  "priority": "medium",
+  "dueDate": "2025-13-45"
+}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Date 2",
+  "description": "Testing invalid date format",
+  "priority": "medium",
+  "dueDate": "not-a-date"
+}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Invalid Date 3",
+  "description": "Testing invalid date format",
+  "priority": "medium",
+  "dueDate": "2025/01/15"
+}
+
+### 4. RESOURCE NOT FOUND ERRORS
+
+### Get non-existent todo with valid UUID format
+GET {{baseUrl}}/todos/123e4567-e89b-12d3-a456-426614174000
+Accept: application/json
+
+### Get todo with invalid UUID format
+GET {{baseUrl}}/todos/invalid-uuid
+Accept: application/json
+
+### Get todo with empty ID
+GET {{baseUrl}}/todos/
+Accept: application/json
+
+### Update non-existent todo
+PUT {{baseUrl}}/todos/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "title": "Non-existent Todo Update",
+  "description": "This should return 404",
+  "status": "active",
+  "priority": "medium"
+}
+
+### Delete non-existent todo
+DELETE {{baseUrl}}/todos/123e4567-e89b-12d3-a456-426614174000
+
+### 5. BOUNDARY VALUE TESTS
+
+### Title at exact character limit (200 chars)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "This title is exactly 200 characters long and should be accepted by the validation system as it meets the maximum length requirement without exceeding it, testing the boundary condition perfectly",
+  "description": "Boundary test for title length",
+  "priority": "medium"
+}
+
+### Title exceeding character limit (201 chars)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "This title is exactly 201 characters long and should be rejected by the validation system as it exceeds the maximum length requirement by one character, testing the boundary condition failure case",
+  "description": "Boundary test for title length - should fail",
+  "priority": "medium"
+}
+
+### Description at exact character limit (1000 chars)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Boundary Description Test",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. This is exactly 1000 characters.",
+  "priority": "medium"
+}
+
+### 6. SPECIAL CHARACTER AND ENCODING TESTS
+
+### SQL Injection attempt
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "'; DROP TABLE Todos; --",
+  "description": "SQL injection test",
+  "priority": "high"
+}
+
+### XSS attempt
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "<script>alert('XSS')</script>",
+  "description": "<img src=x onerror=alert('XSS')>",
+  "priority": "high"
+}
+
+### Unicode and emoji characters
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Unicode Test: 🚀 🎯 ✅ 📝 💡",
+  "description": "Testing Unicode: 中文 العربية Ελληνικά русский 日本語",
+  "priority": "medium"
+}
+
+### Control characters
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Control\tChars\nTest\r",
+  "description": "Testing\x00control\x01characters",
+  "priority": "low"
+}
+
+### 7. QUERY PARAMETER ERRORS
+
+### Invalid query parameters
+GET {{baseUrl}}/todos?status=invalid
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?priority=invalid
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?sortBy=invalid
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?sortDirection=invalid
+Accept: application/json
+
+### Malformed query parameters
+GET {{baseUrl}}/todos?status=
+Accept: application/json
+
+###
+GET {{baseUrl}}/todos?priority=&status=active
+Accept: application/json
+
+### 8. CONTENT LENGTH AND SIZE ERRORS
+
+### Extremely large request (if server has size limits)
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Large Request Test",
+  "description": "A".repeat(10000),
+  "priority": "medium"
+}
+
+### 9. CONCURRENT MODIFICATION ERRORS
+
+### Create a todo for concurrent modification testing
+# @name concurrentTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Concurrent Modification Test",
+  "description": "This todo will be modified concurrently",
+  "priority": "medium"
+}
+
+### Simulate concurrent updates (run these quickly in succession)
+PUT {{baseUrl}}/todos/{{concurrentTodo.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update 1",
+  "description": "First concurrent update",
+  "status": "active",
+  "priority": "high"
+}
+
+###
+PUT {{baseUrl}}/todos/{{concurrentTodo.response.body.id}}
+Content-Type: application/json
+
+{
+  "title": "Concurrent Update 2",
+  "description": "Second concurrent update",
+  "status": "completed",
+  "priority": "low"
+}
+
+### Try to delete while updating
+DELETE {{baseUrl}}/todos/{{concurrentTodo.response.body.id}}
+
+### 10. CLEANUP ERROR TESTS
+
+### Try to delete already deleted todo
+DELETE {{baseUrl}}/todos/{{concurrentTodo.response.body.id}}
+
+### Clean up the valid todo used for testing
+DELETE {{baseUrl}}/todos/{{validTodoForUpdate.response.body.id}}
+
+### Verify cleanup
+GET {{baseUrl}}/todos
+Accept: application/json
