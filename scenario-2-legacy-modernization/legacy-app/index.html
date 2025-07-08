@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegacyShop API - .NET Framework 4.8</title>
+    <link rel="stylesheet" href="Content/Site.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏪 LegacyShop API</h1>
+        <p><strong>Legacy .NET Framework 4.8 E-commerce Application</strong></p>
+        
+        <div class="legacy-warning">
+            <h4>⚠️ Legacy Application Notice</h4>
+            <p>This is a <strong>legacy application</strong> built with .NET Framework 4.8 and demonstrates common anti-patterns and outdated practices that need modernization. It's designed for educational purposes to practice modernizing legacy codebases with AI assistance.</p>
+        </div>
+
+        <div class="api-info">
+            <h3>📋 Available API Endpoints</h3>
+            
+            <h4>Products API</h4>
+            <div class="endpoint method-get">GET /api/products - Get all products</div>
+            <div class="endpoint method-get">GET /api/products/{id} - Get product by ID</div>
+            <div class="endpoint method-get">GET /api/products/search?term={searchTerm} - Search products</div>
+            <div class="endpoint method-get">GET /api/products/category/{category} - Get products by category</div>
+            <div class="endpoint method-get">GET /api/products/lowstock - Get low stock products</div>
+            <div class="endpoint method-post">POST /api/products - Create new product</div>
+            <div class="endpoint method-put">PUT /api/products/{id} - Update product</div>
+            <div class="endpoint method-delete">DELETE /api/products/{id} - Delete product</div>
+
+            <h4>Customers API</h4>
+            <div class="endpoint method-get">GET /api/customers - Get all customers</div>
+            <div class="endpoint method-get">GET /api/customers/{id} - Get customer by ID</div>
+            <div class="endpoint method-get">GET /api/customers/search?email={email} - Search customer by email</div>
+            <div class="endpoint method-get">GET /api/customers/stats - Get customer statistics</div>
+            <div class="endpoint method-post">POST /api/customers - Create new customer</div>
+            <div class="endpoint method-put">PUT /api/customers/{id} - Update customer</div>
+            <div class="endpoint method-delete">DELETE /api/customers/{id} - Delete customer</div>
+
+            <h4>Orders API</h4>
+            <div class="endpoint method-get">GET /api/orders - Get all orders</div>
+            <div class="endpoint method-get">GET /api/orders/{id} - Get order by ID</div>
+            <div class="endpoint method-get">GET /api/orders/customer/{customerId} - Get orders by customer</div>
+            <div class="endpoint method-get">GET /api/orders/stats - Get order statistics</div>
+            <div class="endpoint method-post">POST /api/orders - Create new order</div>
+            <div class="endpoint method-put">PUT /api/orders/{id}/status - Update order status</div>
+
+            <h4>Reports API</h4>
+            <div class="endpoint method-get">GET /api/reports/sales - Get sales report</div>
+            <div class="endpoint method-get">GET /api/reports/inventory - Get inventory report</div>
+            <div class="endpoint method-get">GET /api/reports/customers - Get customer report</div>
+            <div class="endpoint method-get">GET /api/reports/performance - Get performance report</div>
+        </div>
+
+        <div class="legacy-warning">
+            <h4>🔧 Legacy Patterns Demonstrated</h4>
+            <p>This application intentionally includes the following legacy patterns that need modernization:</p>
+            <ul>
+                <li><strong>Synchronous Operations:</strong> All database operations are synchronous</li>
+                <li><strong>Direct Database Access:</strong> Controllers directly access the database context</li>
+                <li><strong>No Dependency Injection:</strong> Dependencies are created directly in classes</li>
+                <li><strong>Mixed Concerns:</strong> Business logic mixed with data access and presentation logic</li>
+                <li><strong>Poor Error Handling:</strong> Basic try-catch blocks with minimal error information</li>
+                <li><strong>No Validation:</strong> Minimal input validation and business rule enforcement</li>
+                <li><strong>Inefficient Queries:</strong> N+1 queries, loading all data into memory</li>
+                <li><strong>No Caching:</strong> No response or data caching mechanisms</li>
+                <li><strong>Security Issues:</strong> SQL injection vulnerabilities, no authentication</li>
+                <li><strong>Configuration Issues:</strong> Hardcoded values, insecure configuration storage</li>
+                <li><strong>No Testing:</strong> No unit tests or integration tests</li>
+                <li><strong>Legacy Framework:</strong> .NET Framework 4.8, Entity Framework 6</li>
+            </ul>
+        </div>
+
+        <div class="api-info">
+            <h3>🚀 Getting Started</h3>
+            <p>To run this legacy application:</p>
+            <ol>
+                <li>Ensure you have .NET Framework 4.8 installed</li>
+                <li>Restore NuGet packages: <code>nuget restore</code></li>
+                <li>Build the solution: <code>msbuild LegacyShop.csproj</code></li>
+                <li>Run with IIS Express or deploy to IIS</li>
+                <li>The database will be created automatically using LocalDB</li>
+                <li>Sample data will be seeded on first run</li>
+            </ol>
+        </div>
+
+        <div class="api-info">
+            <h3>🎯 Modernization Goals</h3>
+            <p>Use this application to practice modernizing to:</p>
+            <ul>
+                <li><strong>.NET 8:</strong> Migrate from .NET Framework 4.8 to .NET 8</li>
+                <li><strong>Entity Framework Core:</strong> Migrate from EF6 to EF Core</li>
+                <li><strong>Async/Await:</strong> Convert synchronous operations to asynchronous</li>
+                <li><strong>Dependency Injection:</strong> Implement proper DI container</li>
+                <li><strong>Clean Architecture:</strong> Separate concerns into proper layers</li>
+                <li><strong>Modern C#:</strong> Use latest C# language features</li>
+                <li><strong>API Best Practices:</strong> Implement proper REST API patterns</li>
+                <li><strong>Security:</strong> Add authentication, authorization, and input validation</li>
+                <li><strong>Performance:</strong> Implement caching, optimize queries</li>
+                <li><strong>Testing:</strong> Add comprehensive unit and integration tests</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>LegacyShop v1.0 - Legacy .NET Framework 4.8 Application for Modernization Practice</p>
+            <p>Built for KiloCode Demo - Scenario 2: Legacy Modernization</p>
+        </div>
+    </div>
+</body>
+</html>
