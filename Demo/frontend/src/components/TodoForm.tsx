@@ -124,122 +124,194 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>
-            {isEditing ? 'Edit Todo' : 'Create New Todo'}
-          </DialogTitle>
-          <DialogDescription>
-            {isEditing
-              ? 'Make changes to your todo item.'
-              : 'Add a new todo item to your list.'}
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden bg-gradient-to-br from-background via-background to-muted/20 border-border/50 shadow-2xl">
+        {/* Enhanced header with gradient */}
+        <div className="relative px-6 py-6 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-border/50">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+          <DialogHeader className="relative">
+            <DialogTitle className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              {isEditing ? 'Edit Todo' : 'Create New Todo'}
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground/80 mt-2">
+              {isEditing
+                ? 'Make changes to your todo item.'
+                : 'Add a new todo item to your list.'}
+            </DialogDescription>
+          </DialogHeader>
+        </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Title */}
-          <div className="space-y-2">
-            <Label htmlFor="title">Title *</Label>
-            <Input
-              id="title"
-              placeholder="Enter todo title..."
-              {...register('title')}
-              className={cn(errors.title && 'border-red-500')}
-            />
+        {/* Enhanced form */}
+        <form onSubmit={handleSubmit(onSubmit)} className="px-6 py-6 space-y-6">
+          {/* Title field with enhanced styling */}
+          <div className="space-y-3">
+            <Label htmlFor="title" className="text-sm font-semibold text-foreground flex items-center gap-2">
+              Title
+              <span className="text-destructive text-xs">*</span>
+            </Label>
+            <div className="relative">
+              <Input
+                id="title"
+                placeholder="Enter a clear, descriptive title..."
+                {...register('title')}
+                className={cn(
+                  'h-11 px-4 text-base transition-all duration-200 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
+                  errors.title && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
+                )}
+              />
+              {errors.title && (
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                  <div className="h-2 w-2 rounded-full bg-destructive animate-pulse" />
+                </div>
+              )}
+            </div>
             {errors.title && (
-              <p className="text-sm text-red-500">{errors.title.message}</p>
+              <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2">
+                <span className="h-1 w-1 rounded-full bg-destructive" />
+                {errors.title.message}
+              </p>
             )}
           </div>
 
-          {/* Description */}
-          <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              id="description"
-              placeholder="Enter description (optional)..."
-              rows={3}
-              {...register('description')}
-              className={cn(errors.description && 'border-red-500')}
-            />
+          {/* Description field with enhanced styling */}
+          <div className="space-y-3">
+            <Label htmlFor="description" className="text-sm font-semibold text-foreground">
+              Description
+            </Label>
+            <div className="relative">
+              <Textarea
+                id="description"
+                placeholder="Add more details about this todo (optional)..."
+                rows={4}
+                {...register('description')}
+                className={cn(
+                  'px-4 py-3 text-base resize-none transition-all duration-200 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
+                  errors.description && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
+                )}
+              />
+              {errors.description && (
+                <div className="absolute top-3 right-3">
+                  <div className="h-2 w-2 rounded-full bg-destructive animate-pulse" />
+                </div>
+              )}
+            </div>
             {errors.description && (
-              <p className="text-sm text-red-500">{errors.description.message}</p>
+              <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2">
+                <span className="h-1 w-1 rounded-full bg-destructive" />
+                {errors.description.message}
+              </p>
             )}
           </div>
 
-          {/* Priority and Status */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="priority">Priority</Label>
+          {/* Enhanced priority and status grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-3">
+              <Label htmlFor="priority" className="text-sm font-semibold text-foreground">
+                Priority Level
+              </Label>
               <Select
                 value={watchedPriority}
                 onValueChange={(value: Priority) => setValue('priority', value)}
               >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select priority" />
+                <SelectTrigger className="h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+                  <SelectValue placeholder="Choose priority level" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="low">Low</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="high">High</SelectItem>
+                <SelectContent className="border-border/50">
+                  <SelectItem value="low" className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-priority-low" />
+                    Low Priority
+                  </SelectItem>
+                  <SelectItem value="medium" className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-priority-medium" />
+                    Medium Priority
+                  </SelectItem>
+                  <SelectItem value="high" className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-priority-high" />
+                    High Priority
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             {isEditing && (
-              <div className="space-y-2">
-                <Label htmlFor="status">Status</Label>
+              <div className="space-y-3">
+                <Label htmlFor="status" className="text-sm font-semibold text-foreground">
+                  Status
+                </Label>
                 <Select
                   value={watchedStatus}
                   onValueChange={(value: TodoStatus) => setValue('status', value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
                     <SelectValue placeholder="Select status" />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="active">Active</SelectItem>
-                    <SelectItem value="completed">Completed</SelectItem>
+                  <SelectContent className="border-border/50">
+                    <SelectItem value="active" className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                      Active
+                    </SelectItem>
+                    <SelectItem value="completed" className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-success" />
+                      Completed
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             )}
           </div>
 
-          {/* Due Date */}
-          <div className="space-y-2">
-            <Label htmlFor="dueDate">Due Date</Label>
+          {/* Enhanced due date */}
+          <div className="space-y-3">
+            <Label htmlFor="dueDate" className="text-sm font-semibold text-foreground">
+              Due Date
+            </Label>
             <Input
               id="dueDate"
               type="date"
               {...register('dueDate')}
-              className={cn(errors.dueDate && 'border-red-500')}
+              className={cn(
+                'h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
+                errors.dueDate && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
+              )}
             />
             {errors.dueDate && (
-              <p className="text-sm text-red-500">{errors.dueDate.message}</p>
+              <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2">
+                <span className="h-1 w-1 rounded-full bg-destructive" />
+                {errors.dueDate.message}
+              </p>
             )}
           </div>
 
-          <DialogFooter>
+          {/* Enhanced footer with better button styling */}
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-border/30">
             <Button
               type="button"
               variant="outline"
               onClick={handleCancel}
               disabled={isSubmitting}
+              className="h-10 px-6 font-medium border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-200"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={isSubmitting}
+              className={cn(
+                'h-10 px-6 font-medium transition-all duration-200',
+                'bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary',
+                'shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed',
+                isSubmitting && 'animate-pulse'
+              )}
             >
-              {isSubmitting
-                ? isEditing
-                  ? 'Updating...'
-                  : 'Creating...'
-                : isEditing
-                ? 'Update Todo'
-                : 'Create Todo'}
+              {isSubmitting ? (
+                <div className="flex items-center gap-2">
+                  <div className="h-4 w-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                  {isEditing ? 'Updating...' : 'Creating...'}
+                </div>
+              ) : (
+                isEditing ? 'Update Todo' : 'Create Todo'
+              )}
             </Button>
-          </DialogFooter>
+          </div>
         </form>
       </DialogContent>
     </Dialog>

@@ -27,56 +27,81 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b bg-card">
-          <div className="container mx-auto px-4 py-6">
+        {/* Enhanced Header with gradient and better typography */}
+        <header className="relative border-b bg-card/80 backdrop-blur-sm shadow-soft">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
+          <div className="container relative mx-auto px-4 py-8">
             <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold tracking-tight">Todo App</h1>
-                <p className="text-muted-foreground mt-1">
-                  Manage your tasks efficiently
+              <div className="space-y-2">
+                <h1 className="text-4xl font-bold tracking-tight text-gradient">
+                  Todo App
+                </h1>
+                <p className="text-muted-foreground text-lg font-medium">
+                  Organize your life, one task at a time
                 </p>
               </div>
-              <div className="text-sm text-muted-foreground">
-                Built with React + TypeScript
+              <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border">
+                <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                <span className="text-sm text-muted-foreground font-medium">
+                  Live & Ready
+                </span>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Main Content */}
-        <main className="container mx-auto px-4 py-8">
-          <TodoList />
+        {/* Enhanced Main Content with better spacing */}
+        <main className="container mx-auto px-4 py-12">
+          <div className="max-w-6xl mx-auto">
+            <TodoList />
+          </div>
         </main>
 
-        {/* Footer */}
-        <footer className="border-t bg-card mt-16">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between text-sm text-muted-foreground">
-              <p>© 2024 Todo App. Built with modern web technologies.</p>
-              <div className="flex items-center gap-4">
-                <span>React 19</span>
-                <span>•</span>
-                <span>TypeScript</span>
-                <span>•</span>
-                <span>Tailwind CSS</span>
-                <span>•</span>
-                <span>Shadcn/ui</span>
+        {/* Enhanced Footer with modern styling */}
+        <footer className="relative border-t bg-card/50 backdrop-blur-sm mt-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-muted/20 via-transparent to-muted/20" />
+          <div className="container relative mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <p className="text-sm text-muted-foreground font-medium">
+                  © 2024 Todo App
+                </p>
+                <div className="hidden md:block w-1 h-1 rounded-full bg-muted-foreground/30" />
+                <p className="text-sm text-muted-foreground">
+                  Built with modern web technologies
+                </p>
+              </div>
+              <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/30 border">
+                  <span className="font-semibold text-primary">React 19</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/30 border">
+                  <span className="font-semibold text-primary">TypeScript</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/30 border">
+                  <span className="font-semibold text-primary">Tailwind CSS</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/30 border">
+                  <span className="font-semibold text-primary">Shadcn/ui</span>
+                </div>
               </div>
             </div>
           </div>
         </footer>
       </div>
 
-      {/* Toast notifications */}
-      <Toaster 
+      {/* Enhanced Toast notifications */}
+      <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
+          className: 'shadow-medium',
           style: {
-            background: 'hsl(var(--background))',
-            color: 'hsl(var(--foreground))',
+            background: 'hsl(var(--card))',
+            color: 'hsl(var(--card-foreground))',
             border: '1px solid hsl(var(--border))',
+            borderRadius: 'var(--radius-lg)',
+            backdropFilter: 'blur(10px)',
           },
         }}
       />

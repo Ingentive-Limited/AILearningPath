@@ -154,33 +154,60 @@ export function TodoList() {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header with Stats */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl font-bold">My Todos</CardTitle>
-            <Button onClick={() => setShowForm(true)} disabled={showForm}>
-              <Plus className="h-4 w-4 mr-2" />
+    <div className="space-y-8 fade-in">
+      {/* Enhanced Header with Stats */}
+      <Card className="gradient-border shadow-medium">
+        <CardHeader className="pb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <CardTitle className="text-3xl font-bold text-gradient">
+                My Todos
+              </CardTitle>
+              <p className="text-muted-foreground">
+                Stay organized and productive
+              </p>
+            </div>
+            <Button
+              onClick={() => setShowForm(true)}
+              disabled={showForm}
+              className="btn-hover shadow-soft bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-6 py-2.5"
+              size="lg"
+            >
+              <Plus className="h-5 w-5 mr-2" />
               Add Todo
             </Button>
           </div>
           
-          <div className="flex gap-4 mt-4">
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <Circle className="h-3 w-3" />
+          <div className="flex flex-wrap gap-3 mt-6">
+            <Badge
+              variant="secondary"
+              className="status-active flex items-center gap-2 px-4 py-2 text-sm font-semibold"
+            >
+              <Circle className="h-4 w-4" />
               {activeTodos} Active
             </Badge>
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <CheckCircle2 className="h-3 w-3" />
+            <Badge
+              variant="secondary"
+              className="status-completed flex items-center gap-2 px-4 py-2 text-sm font-semibold"
+            >
+              <CheckCircle2 className="h-4 w-4" />
               {completedTodos} Completed
             </Badge>
             {overdueTodos > 0 && (
-              <Badge variant="destructive" className="flex items-center gap-1">
-                <AlertCircle className="h-3 w-3" />
+              <Badge
+                variant="destructive"
+                className="status-overdue flex items-center gap-2 px-4 py-2 text-sm font-semibold animate-pulse"
+              >
+                <AlertCircle className="h-4 w-4" />
                 {overdueTodos} Overdue
               </Badge>
             )}
+            <Badge
+              variant="outline"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold border-dashed"
+            >
+              Total: {totalTodos}
+            </Badge>
           </div>
         </CardHeader>
       </Card>
@@ -216,40 +243,69 @@ export function TodoList() {
         filteredCount={sortedTodos.length}
       />
 
-      {/* Bulk Actions */}
+      {/* Enhanced Bulk Actions */}
       {selectedTodos.size > 0 && (
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">
-                {selectedTodos.size} todo{selectedTodos.size !== 1 ? 's' : ''} selected
-              </span>
-              <Button
-                variant="destructive"
-                size="sm"
-                onClick={handleBulkDelete}
-                disabled={deleteTodoMutation.isPending}
-              >
-                <Trash2 className="h-4 w-4 mr-2" />
-                Delete Selected
-              </Button>
+        <Card className="slide-in border-primary/20 bg-primary/5 shadow-medium">
+          <CardContent className="p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">
+                    {selectedTodos.size} todo{selectedTodos.size !== 1 ? 's' : ''} selected
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Choose an action to perform on selected items
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelectedTodos(new Set())}
+                  className="btn-hover"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={handleBulkDelete}
+                  disabled={deleteTodoMutation.isPending}
+                  className="btn-hover shadow-soft"
+                >
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  {deleteTodoMutation.isPending ? 'Deleting...' : 'Delete Selected'}
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
       )}
 
-      {/* Todo List */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-lg">
-              {sortedTodos.length > 0 ? 'Your Todos' : 'No Todos Found'}
-            </CardTitle>
+      {/* Enhanced Todo List */}
+      <Card className="shadow-medium">
+        <CardHeader className="pb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <CardTitle className="text-xl font-bold">
+                {sortedTodos.length > 0 ? 'Your Todos' : 'No Todos Found'}
+              </CardTitle>
+              {sortedTodos.length > 0 && (
+                <p className="text-sm text-muted-foreground mt-1">
+                  {sortedTodos.length} of {totalTodos} todos shown
+                </p>
+              )}
+            </div>
             {sortedTodos.length > 0 && (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleSelectAll}
+                className="btn-hover"
               >
                 {selectedTodos.size === sortedTodos.length ? 'Deselect All' : 'Select All'}
               </Button>
@@ -259,58 +315,94 @@ export function TodoList() {
         
         <CardContent className="p-0">
           {isLoading ? (
-            <div className="p-6 space-y-4">
+            <div className="p-8 space-y-6">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="space-y-2">
-                  <Skeleton className="h-4 w-3/4" />
-                  <Skeleton className="h-3 w-1/2" />
+                <div key={i} className="space-y-3 loading-pulse">
+                  <div className="flex items-center gap-4">
+                    <Skeleton className="h-5 w-5 rounded" />
+                    <div className="flex-1 space-y-2">
+                      <Skeleton className="h-5 w-3/4" />
+                      <Skeleton className="h-4 w-1/2" />
+                    </div>
+                    <Skeleton className="h-8 w-20" />
+                  </div>
                 </div>
               ))}
             </div>
           ) : sortedTodos.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">
+            <div className="p-12 text-center">
               {totalTodos === 0 ? (
-                <div>
-                  <Circle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No todos yet</p>
-                  <p>Create your first todo to get started!</p>
+                <div className="fade-in">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-muted/30 flex items-center justify-center">
+                    <Circle className="h-10 w-10 text-muted-foreground/50" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">No todos yet</h3>
+                  <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                    Start organizing your tasks by creating your first todo.
+                    Click the "Add Todo" button above to get started!
+                  </p>
+                  <Button
+                    onClick={() => setShowForm(true)}
+                    className="btn-hover shadow-soft"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Create Your First Todo
+                  </Button>
                 </div>
               ) : (
-                <div>
-                  <AlertCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">No todos match your filters</p>
-                  <p>Try adjusting your search or filter criteria.</p>
+                <div className="fade-in">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-warning/10 flex items-center justify-center">
+                    <AlertCircle className="h-10 w-10 text-warning" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">No todos match your filters</h3>
+                  <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                    Try adjusting your search terms or filter criteria to find what you're looking for.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={clearFilters}
+                    className="btn-hover"
+                  >
+                    Clear All Filters
+                  </Button>
                 </div>
               )}
             </div>
           ) : (
-            <div className="divide-y">
+            <div className="divide-y divide-border/50">
               {sortedTodos.map((todo, index) => (
-                <div key={todo.id} className="p-4">
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      checked={selectedTodos.has(todo.id)}
-                      onChange={(e) => handleSelectTodo(todo.id, e.target.checked)}
-                      className="mt-1"
-                    />
-                    <div className="flex-1">
+                <div
+                  key={todo.id}
+                  className="p-6 card-hover transition-all duration-200 group"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <input
+                        type="checkbox"
+                        checked={selectedTodos.has(todo.id)}
+                        onChange={(e) => handleSelectTodo(todo.id, e.target.checked)}
+                        className="w-4 h-4 text-primary bg-background border-2 border-border rounded focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
                       <TodoItem
                         todo={todo}
                         onEdit={handleEditTodo}
                       />
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => handleToggleComplete(todo)}
                         disabled={updateTodoMutation.isPending}
+                        className="btn-hover h-8 w-8 p-0"
+                        title={todo.status === 'completed' ? 'Mark as active' : 'Mark as completed'}
                       >
                         {todo.status === 'completed' ? (
-                          <CheckCircle2 className="h-4 w-4 text-green-600" />
+                          <CheckCircle2 className="h-4 w-4 text-success" />
                         ) : (
-                          <Circle className="h-4 w-4" />
+                          <Circle className="h-4 w-4 text-muted-foreground hover:text-success" />
                         )}
                       </Button>
                       <Button
@@ -318,12 +410,13 @@ export function TodoList() {
                         size="sm"
                         onClick={() => handleDeleteTodo(todo.id)}
                         disabled={deleteTodoMutation.isPending}
+                        className="btn-hover h-8 w-8 p-0 hover:bg-destructive/10"
+                        title="Delete todo"
                       >
-                        <Trash2 className="h-4 w-4 text-red-600" />
+                        <Trash2 className="h-4 w-4 text-muted-foreground hover:text-destructive" />
                       </Button>
                     </div>
                   </div>
-                  {index < sortedTodos.length - 1 && <Separator className="mt-4" />}
                 </div>
               ))}
             </div>
