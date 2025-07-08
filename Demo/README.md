@@ -223,7 +223,6 @@ dotnet publish --configuration Release --output ./publish
 ### Environment Configuration
 - **Development**: Uses SQLite database file
 - **Production**: Configure connection string in appsettings.json
-- **CORS**: Configured for localhost development
 
 ## 📊 Performance Metrics
 

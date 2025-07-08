@@ -27,17 +27,6 @@ builder.Services.AddScoped<ITodoService, TodoService>();
 builder.Services.AddScoped<IValidator<CreateTodoRequest>, CreateTodoRequestValidator>();
 builder.Services.AddScoped<IValidator<UpdateTodoRequest>, UpdateTodoRequestValidator>();
 
-// Add CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5173", "http://localhost:4200")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
-    });
-});
 
 // Add Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -100,7 +89,6 @@ app.UseExceptionHandler(errorApp =>
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 

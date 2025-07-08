@@ -18,7 +18,6 @@ This project follows Clean Architecture with the following layers:
 - Entity Framework Core with SQLite database
 - FluentValidation for input validation
 - Swagger/OpenAPI documentation
-- CORS support for frontend integration
 - Comprehensive error handling and logging
 - Filtering, sorting, and pagination support
 - Bulk operations (delete multiple todos)
