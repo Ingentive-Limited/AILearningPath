@@ -27,9 +27,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background">
-        {/* Enhanced Header with gradient and better typography */}
-        <header className="relative border-b bg-card/80 backdrop-blur-sm shadow-soft">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
+        {/* Enhanced Header with better contrast */}
+        <header className="relative border-b bg-card shadow-soft">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/3 via-transparent to-accent/3" />
           <div className="container relative mx-auto px-4 py-8">
             <div className="flex items-center justify-between">
               <div className="space-y-2">
@@ -57,9 +57,9 @@ function App() {
           </div>
         </main>
 
-        {/* Enhanced Footer with modern styling */}
-        <footer className="relative border-t bg-card/50 backdrop-blur-sm mt-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-muted/20 via-transparent to-muted/20" />
+        {/* Enhanced Footer with better contrast */}
+        <footer className="relative border-t bg-card mt-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-muted/10 via-transparent to-muted/10" />
           <div className="container relative mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex flex-col md:flex-row items-center gap-4">

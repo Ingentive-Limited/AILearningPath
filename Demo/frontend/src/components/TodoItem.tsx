@@ -69,6 +69,7 @@ export function TodoItem({ todo, onEdit }: TodoItemProps) {
               'font-semibold text-lg leading-6 text-foreground transition-all duration-200',
               isCompleted && 'text-muted-foreground'
             )}
+            data-testid="todo-title"
           >
             {todo.title}
           </h3>
@@ -77,6 +78,7 @@ export function TodoItem({ todo, onEdit }: TodoItemProps) {
               'flex-shrink-0 text-xs font-bold px-3 py-1 transition-all duration-200',
               `priority-${todo.priority}`
             )}
+            data-testid="todo-priority"
           >
             {todo.priority.toUpperCase()}
           </Badge>
@@ -104,6 +106,7 @@ export function TodoItem({ todo, onEdit }: TodoItemProps) {
                   ? 'bg-danger/10 text-danger border border-danger/20'
                   : 'bg-muted/50 text-muted-foreground border border-border/50'
               )}
+              data-testid="todo-due-date"
             >
               <Calendar className="h-3.5 w-3.5" />
               <span>Due {formatDate(todo.dueDate)}</span>

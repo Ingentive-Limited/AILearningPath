@@ -25,7 +25,8 @@ export abstract class BasePage {
 
   protected async clickElement(locator: Locator) {
     await this.waitForElement(locator);
-    await locator.click();
+    // Use force click to handle overlapping elements
+    await locator.click({ force: true });
   }
 
   protected async fillInput(locator: Locator, value: string) {

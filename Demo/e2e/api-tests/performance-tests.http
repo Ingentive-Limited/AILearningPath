@@ -1,7 +1,7 @@
 ### Performance and Load Testing for Todo API
 ### Base URL: http://localhost:5000/api
 
-@baseUrl = http://localhost:5000/api
+@baseUrl = http://localhost:5056/api
 
 ### 1. BULK OPERATIONS PERFORMANCE
 

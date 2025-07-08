@@ -1,7 +1,7 @@
 ### Error Handling and Edge Cases for Todo API
 ### Base URL: http://localhost:5000/api
 
-@baseUrl = http://localhost:5000/api
+@baseUrl = http://localhost:5056/api
 
 ### 1. HTTP METHOD ERRORS
 

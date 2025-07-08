@@ -124,7 +124,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden bg-gradient-to-br from-background via-background to-muted/20 border-border/50 shadow-2xl">
+      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden bg-card border-border shadow-2xl">
         {/* Enhanced header with gradient */}
         <div className="relative px-6 py-6 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-border/50">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
@@ -157,6 +157,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
                   'h-11 px-4 text-base transition-all duration-200 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
                   errors.title && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
                 )}
+                data-testid="title-input"
               />
               {errors.title && (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -165,7 +166,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
               )}
             </div>
             {errors.title && (
-              <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2">
+              <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2" data-testid="title-error">
                 <span className="h-1 w-1 rounded-full bg-destructive" />
                 {errors.title.message}
               </p>
@@ -187,6 +188,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
                   'px-4 py-3 text-base resize-none transition-all duration-200 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
                   errors.description && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
                 )}
+                data-testid="description-input"
               />
               {errors.description && (
                 <div className="absolute top-3 right-3">
@@ -212,7 +214,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
                 value={watchedPriority}
                 onValueChange={(value: Priority) => setValue('priority', value)}
               >
-                <SelectTrigger className="h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+                <SelectTrigger className="h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20" data-testid="priority-select">
                   <SelectValue placeholder="Choose priority level" />
                 </SelectTrigger>
                 <SelectContent className="border-border/50">
@@ -272,6 +274,7 @@ export function TodoForm({ todo, open, onOpenChange }: TodoFormProps) {
                 'h-11 px-4 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20',
                 errors.dueDate && 'border-destructive/50 focus:border-destructive focus:ring-destructive/20'
               )}
+              data-testid="due-date-input"
             />
             {errors.dueDate && (
               <p className="text-sm text-destructive flex items-center gap-2 animate-in slide-in-from-left-2">

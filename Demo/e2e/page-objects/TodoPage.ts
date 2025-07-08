@@ -53,29 +53,29 @@ export class TodoPage extends BasePage {
     super(page);
     
     // Main page elements
-    this.addTodoButton = page.getByRole('button', { name: /add todo|create todo|new todo/i });
-    this.searchInput = page.getByPlaceholder(/search todos/i);
+    this.addTodoButton = page.getByTestId('add-todo-button');
+    this.searchInput = page.getByTestId('search-input');
     this.todoList = page.getByTestId('todo-list');
     this.emptyState = page.getByTestId('empty-state');
-    this.bulkDeleteButton = page.getByRole('button', { name: /delete completed|bulk delete/i });
+    this.bulkDeleteButton = page.getByRole('button', { name: /delete selected/i });
 
     // Filter elements
     this.statusFilter = page.getByTestId('status-filter');
     this.priorityFilter = page.getByTestId('priority-filter');
     this.dateFilter = page.getByTestId('date-filter');
-    this.clearFiltersButton = page.getByRole('button', { name: /clear filters/i });
+    this.clearFiltersButton = page.getByTestId('clear-filters-button');
 
     // Sort elements
     this.sortDropdown = page.getByTestId('sort-dropdown');
 
     // Modal elements
-    this.modal = page.getByRole('dialog');
+    this.modal = page.locator('[data-slot="dialog-content"]');
     this.modalTitle = this.modal.getByRole('heading');
-    this.titleInput = this.modal.getByLabel(/title/i);
-    this.descriptionInput = this.modal.getByLabel(/description/i);
-    this.prioritySelect = this.modal.getByLabel(/priority/i);
-    this.dueDateInput = this.modal.getByLabel(/due date/i);
-    this.saveButton = this.modal.getByRole('button', { name: /save|create|update/i });
+    this.titleInput = page.getByTestId('title-input');
+    this.descriptionInput = page.getByTestId('description-input');
+    this.prioritySelect = page.getByTestId('priority-select');
+    this.dueDateInput = page.getByTestId('due-date-input');
+    this.saveButton = this.modal.getByRole('button', { name: /create todo|update todo/i });
     this.cancelButton = this.modal.getByRole('button', { name: /cancel/i });
     this.modalCloseButton = this.modal.getByRole('button', { name: /close/i });
 
@@ -90,7 +90,7 @@ export class TodoPage extends BasePage {
 
     // Messages
     this.errorMessage = page.getByRole('alert').filter({ hasText: /error/i });
-    this.successMessage = page.getByRole('alert').filter({ hasText: /success/i });
+    this.successMessage = page.locator('.sonner-toast').filter({ hasText: /success|created|updated|deleted/i });
   }
 
   // Navigation
@@ -102,7 +102,8 @@ export class TodoPage extends BasePage {
   // Todo creation
   async openCreateTodoModal() {
     await this.clickElement(this.addTodoButton);
-    await this.waitForElement(this.modal);
+    // Wait longer for modal to appear
+    await this.waitForElement(this.modal, 10000);
     await expect(this.modalTitle).toContainText(/create|add|new/i);
   }
 

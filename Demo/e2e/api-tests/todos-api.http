@@ -2,7 +2,7 @@
 ### Base URL: http://localhost:5000/api
 
 ### Variables
-@baseUrl = http://localhost:5000/api
+@baseUrl = http://localhost:5056/api
 @todoId = {{createTodo.response.body.id}}
 @completedTodoId = {{createCompletedTodo.response.body.id}}
 

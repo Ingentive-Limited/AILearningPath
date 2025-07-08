@@ -13,6 +13,7 @@ import { useTodos, useCreateTodo, useUpdateTodo, useDeleteTodo, useBulkDeleteCom
 import type { Todo, CreateTodoRequest, UpdateTodoRequest } from '@/types/todo';
 import { filterTodos, sortTodos } from '@/lib/todo-utils';
 
+
 export function TodoList() {
   const [showForm, setShowForm] = useState(false);
   const [editingTodo, setEditingTodo] = useState<Todo | undefined>(undefined);
@@ -169,11 +170,10 @@ export function TodoList() {
             </div>
             <Button
               onClick={() => setShowForm(true)}
-              disabled={showForm}
-              className="btn-hover shadow-soft bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-6 py-2.5"
-              size="lg"
+              data-testid="add-todo-button"
+              className="bg-primary hover:bg-primary/90"
             >
-              <Plus className="h-5 w-5 mr-2" />
+              <Plus className="w-4 h-4 mr-2" />
               Add Todo
             </Button>
           </div>
@@ -330,7 +330,7 @@ export function TodoList() {
               ))}
             </div>
           ) : sortedTodos.length === 0 ? (
-            <div className="p-12 text-center">
+            <div className="p-12 text-center" data-testid="empty-state">
               {totalTodos === 0 ? (
                 <div className="fade-in">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-muted/30 flex items-center justify-center">
@@ -369,11 +369,12 @@ export function TodoList() {
               )}
             </div>
           ) : (
-            <div className="divide-y divide-border/50">
+            <div className="divide-y divide-border/50" data-testid="todo-list">
               {sortedTodos.map((todo, index) => (
                 <div
                   key={todo.id}
                   className="p-6 card-hover transition-all duration-200 group"
+                  data-testid="todo-item"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 mt-1">

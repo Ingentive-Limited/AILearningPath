@@ -78,6 +78,7 @@ export function TodoFilters({
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             className="pl-12 pr-12 h-11 text-base border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+            data-testid="search-input"
           />
           {search && (
             <Button
@@ -106,7 +107,7 @@ export function TodoFilters({
           <div className="space-y-3">
             <label className="text-sm font-medium text-foreground">Status</label>
             <Select value={status} onValueChange={onStatusChange}>
-              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20" data-testid="status-filter">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="border-border/50">
@@ -127,7 +128,7 @@ export function TodoFilters({
           <div className="space-y-3">
             <label className="text-sm font-medium text-foreground">Priority</label>
             <Select value={priority} onValueChange={onPriorityChange}>
-              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20" data-testid="priority-filter">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="border-border/50">
@@ -152,7 +153,7 @@ export function TodoFilters({
           <div className="space-y-3">
             <label className="text-sm font-medium text-foreground">Due Date</label>
             <Select value={dueDate} onValueChange={onDueDateChange}>
-              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20" data-testid="date-filter">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="border-border/50">
@@ -176,7 +177,7 @@ export function TodoFilters({
           <div className="space-y-3">
             <label className="text-sm font-medium text-foreground">Sort By</label>
             <Select value={sortBy} onValueChange={onSortByChange}>
-              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
+              <SelectTrigger className="h-10 border-border/50 focus:border-primary/50 focus:ring-2 focus:ring-primary/20" data-testid="sort-dropdown">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="border-border/50">
@@ -228,6 +229,7 @@ export function TodoFilters({
             size="sm"
             onClick={onClearFilters}
             className="h-8 px-3 text-xs font-medium border-border/50 hover:border-destructive/50 hover:bg-destructive/5 hover:text-destructive transition-all duration-200"
+            data-testid="clear-filters-button"
           >
             <X className="h-3 w-3 mr-1.5" />
             Clear All
