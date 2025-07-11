@@ -210,4 +210,4 @@ Content-Type: application/json
 
 ## License
 
-This project is part of the KiloCode demo and is intended for educational purposes.
+This project is part of the Ingentive AI demo and is intended for educational purposes.

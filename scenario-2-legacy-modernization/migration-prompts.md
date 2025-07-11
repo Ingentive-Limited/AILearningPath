@@ -1,6 +1,6 @@
 # Migration Prompts for Legacy Modernization
 
-This file contains specific prompts for each phase of the legacy modernization process. Use these prompts with KiloCode to systematically modernize the legacy e-commerce application.
+This file contains specific prompts for each phase of the legacy modernization process. Use these prompts with your AI coding assistant to systematically modernize the legacy e-commerce application.
 
 ## Phase 1: Analysis and Planning
 
@@ -490,7 +490,7 @@ Include comprehensive pipeline documentation and troubleshooting guides.
 3. Back up your current progress
 4. Read the prompt carefully and understand the objectives
 
-### While Working with KiloCode
+### While Working with Your AI Coding Assistant
 1. Use prompts in the order provided
 2. Wait for each prompt to complete before proceeding
 3. Review and test the generated code thoroughly
@@ -506,7 +506,7 @@ Include comprehensive pipeline documentation and troubleshooting guides.
 
 ### Troubleshooting Tips
 - If a prompt generates unexpected results, try breaking it into smaller, more specific prompts
-- Ask KiloCode to explain its decisions and recommendations
+- Ask your AI assistant to explain its decisions and recommendations
 - Request alternative approaches if the first attempt doesn't meet your needs
 - Use the modernization checklist to verify completeness
 - Test incrementally rather than waiting until the end

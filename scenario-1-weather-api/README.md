@@ -6,7 +6,7 @@
 
 ## Overview
 
-In this scenario, you'll experience how KiloCode can transform a simple natural language description into a complete, production-ready weather tracking API. This is perfect for developers new to AI-assisted development who want to see immediate, tangible results.
+In this scenario, you'll experience how AI coding assistants can transform a simple natural language description into a complete, production-ready weather tracking API. This is perfect for developers new to AI-assisted development who want to see immediate, tangible results.
 
 ## Learning Objectives
 
@@ -22,7 +22,7 @@ By completing this scenario, you will:
 ### Required Software
 - Visual Studio 2022 (17.8+) or VS Code with C# extension
 - .NET 8 SDK (latest version)
-- KiloCode extension installed and configured
+- AI coding assistant (KiloCode, Cursor, Windsurf, or similar) installed and configured
 
 ### Required Knowledge
 - Basic understanding of C# and .NET
@@ -38,7 +38,7 @@ By completing this scenario, you will:
    cd scenario-1-weather-api
    ```
 
-2. **Use KiloCode to create the project**. Open KiloCode and use this prompt:
+2. **Use your AI coding assistant to create the project**. Open your AI assistant and use this prompt:
 
    ```
    Create a new ASP.NET Core 8 Web API project called "WeatherTracker" with the following requirements:
@@ -49,11 +49,11 @@ By completing this scenario, you will:
    - Include development and production appsettings
    ```
 
-   **Expected Result**: KiloCode should generate the basic project structure with all necessary files.
+   **Expected Result**: Your AI assistant should generate the basic project structure with all necessary files.
 
 ### Step 2: Define the Data Model
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Create a comprehensive weather data model for the WeatherTracker API with these specifications:
 
@@ -73,14 +73,14 @@ Create a comprehensive weather data model for the WeatherTracker API with these 
 ```
 
 **What to Observe**:
-- How KiloCode creates proper entity relationships
+- How your AI assistant creates proper entity relationships
 - Automatic validation attributes
 - DbContext configuration best practices
 - Seed data generation
 
 ### Step 3: Build the API Controllers
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Create a comprehensive WeatherController for the WeatherTracker API with these endpoints:
 
@@ -108,7 +108,7 @@ Include:
 
 ### Step 4: Add Advanced Features
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Enhance the WeatherTracker API with these advanced features:
 
@@ -130,7 +130,7 @@ Enhance the WeatherTracker API with these advanced features:
 
 ### Step 5: Testing and Documentation
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Create comprehensive testing and documentation for the WeatherTracker API:
 
@@ -168,26 +168,26 @@ dotnet run
 3. **Verify data**: Check that seed data is loaded correctly
 4. **Test validation**: Try invalid inputs to see error handling
 
-## Key KiloCode Capabilities Demonstrated
+## Key AI Coding Assistant Capabilities Demonstrated
 
 ### 1. Natural Language to Code Translation
 - **What you did**: Described requirements in plain English
-- **What KiloCode did**: Generated complete, working C# code
+- **What your AI assistant did**: Generated complete, working C# code
 - **Learning**: AI can understand complex requirements and translate them into proper code structure
 
 ### 2. Best Practices Implementation
 - **What you observed**: Proper async/await usage, dependency injection, error handling
-- **What KiloCode did**: Automatically applied .NET best practices
+- **What your AI assistant did**: Automatically applied .NET best practices
 - **Learning**: AI incorporates industry standards without explicit instruction
 
 ### 3. Intelligent Code Completion
 - **What you experienced**: Context-aware suggestions while typing
-- **What KiloCode did**: Predicted your intent and offered relevant completions
+- **What your AI assistant did**: Predicted your intent and offered relevant completions
 - **Learning**: AI understands code context and patterns
 
 ### 4. Error Detection and Fixes
 - **What you saw**: Automatic detection of potential issues
-- **What KiloCode did**: Suggested fixes and improvements
+- **What your AI assistant did**: Suggested fixes and improvements
 - **Learning**: AI can identify and resolve common coding problems
 
 ## Expected Outcomes
@@ -220,7 +220,7 @@ After completing this scenario, you should have:
 
 ### Common Issues and Solutions
 
-#### Issue: "KiloCode generated code doesn't compile"
+#### Issue: "AI assistant generated code doesn't compile"
 **Solution**: 
 - Check that all NuGet packages are installed
 - Verify .NET 8 SDK is properly installed
@@ -244,12 +244,12 @@ After completing this scenario, you should have:
 - Verify all test dependencies are installed
 - Review test setup and teardown methods
 
-### Getting Better Results from KiloCode
+### Getting Better Results from Your AI Assistant
 
 #### Effective Prompting Tips
 1. **Be specific about requirements**: Instead of "create an API," specify endpoints, data models, and business rules
 2. **Mention technology preferences**: Specify frameworks, libraries, and patterns you want to use
-3. **Request explanations**: Ask KiloCode to explain its decisions and recommendations
+3. **Request explanations**: Ask your AI assistant to explain its decisions and recommendations
 4. **Iterate incrementally**: Start with basic functionality and add complexity gradually
 
 #### Example of Good vs. Poor Prompts
@@ -262,7 +262,7 @@ After completing this scenario, you should have:
 
 Congratulations! You've completed Scenario 1 and experienced the power of AI-assisted development. You're now ready to:
 
-1. **Experiment further**: Try modifying the generated code and see how KiloCode assists
+1. **Experiment further**: Try modifying the generated code and see how your AI assistant helps
 2. **Move to Scenario 2**: Ready for more complex challenges? Try the [Legacy Modernization scenario](../scenario-2-legacy-modernization/)
 3. **Apply to your projects**: Use the techniques learned here in your own development work
 

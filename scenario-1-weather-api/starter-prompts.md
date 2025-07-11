@@ -1,6 +1,6 @@
 # Starter Prompts for Weather API Scenario
 
-This file contains the exact prompts you should use with KiloCode to complete the Weather API scenario. Copy and paste these prompts in order for the best results.
+This file contains the exact prompts you should use with your AI coding assistant to complete the Weather API scenario. Copy and paste these prompts in order for the best results.
 
 ## 1. Project Creation Prompt
 
@@ -106,7 +106,7 @@ Create comprehensive testing and documentation for the WeatherTracker API:
 ### Before You Start
 - Ensure you have .NET 8 SDK installed
 - Have Visual Studio 2022 or VS Code ready
-- Make sure KiloCode extension is active
+- Make sure your AI coding assistant extension is active
 
 ### While Working
 - Use each prompt in sequence - don't skip ahead
@@ -117,7 +117,7 @@ Create comprehensive testing and documentation for the WeatherTracker API:
 ### If Something Goes Wrong
 - Check the troubleshooting section in the main README
 - Try rephrasing the prompt with more specific requirements
-- Ask KiloCode to explain its decisions if unclear
+- Ask your AI assistant to explain its decisions if unclear
 - Don't hesitate to ask for code explanations
 
 ### Customization Ideas

@@ -344,7 +344,7 @@ dotnet build
 
 ## 📄 License
 
-This project is part of the KiloCode demonstration and is intended for educational and portfolio purposes.
+This project is part of the AI Coding Assistant demonstration and is intended for educational and portfolio purposes.
 
 ## 🙏 Acknowledgments
 
@@ -353,11 +353,3 @@ This project is part of the KiloCode demonstration and is intended for education
 - **Shadcn** - For the beautiful component library
 - **Playwright Team** - For comprehensive testing capabilities
 - **Open Source Community** - For the amazing tools and libraries
-
----
-
-**Built with ❤️ using modern web technologies**
-
-*Last Updated: January 2025*  
-*Version: 1.0.0*  
-*Maintainer: KiloCode Development Team*

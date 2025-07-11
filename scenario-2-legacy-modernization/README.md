@@ -6,7 +6,7 @@
 
 ## Overview
 
-This scenario demonstrates KiloCode's powerful refactoring and modernization capabilities. You'll work with a fictional legacy e-commerce system built on .NET Framework 4.8 and systematically modernize it to .NET 8, experiencing how AI can handle complex, multi-file transformations while maintaining functionality.
+This scenario demonstrates AI coding assistant powerful refactoring and modernization capabilities. You'll work with a fictional legacy e-commerce system built on .NET Framework 4.8 and systematically modernize it to .NET 8, experiencing how AI can handle complex, multi-file transformations while maintaining functionality.
 
 ## Learning Objectives
 
@@ -24,7 +24,7 @@ By completing this scenario, you will:
 - Visual Studio 2022 (17.8+) or VS Code with C# extension
 - .NET 8 SDK and .NET Framework 4.8 Developer Pack
 - SQL Server LocalDB or SQL Server Express
-- KiloCode extension installed and configured
+- AI coding assistant (KiloCode, Cursor, Windsurf, or similar) installed and configured
 
 ### Required Knowledge
 - Solid understanding of C# and .NET Framework
@@ -38,7 +38,7 @@ By completing this scenario, you will:
 
 First, let's examine the legacy e-commerce system that you'll be modernizing.
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Create a realistic legacy .NET Framework 4.8 e-commerce application called "LegacyShop" with these characteristics:
 
@@ -74,7 +74,7 @@ The code should represent typical legacy patterns:
 
 ### Step 2: Initial Analysis and Planning
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Analyze the LegacyShop application and create a comprehensive modernization plan:
 
@@ -101,7 +101,7 @@ Provide a detailed report with:
 
 ### Step 3: Project Structure Modernization
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Modernize the LegacyShop project structure to .NET 8:
 
@@ -127,7 +127,7 @@ Maintain all existing functionality while modernizing the infrastructure.
 
 ### Step 4: Data Access Layer Modernization
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Modernize the data access layer from Entity Framework 6 to Entity Framework Core:
 
@@ -153,7 +153,7 @@ Ensure all existing data access functionality is preserved while improving perfo
 
 ### Step 5: Business Logic Modernization
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Modernize the business logic layer with these improvements:
 
@@ -183,7 +183,7 @@ Focus on:
 
 ### Step 6: API Modernization
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Modernize the web layer and add a modern Web API:
 
@@ -209,7 +209,7 @@ Ensure backward compatibility while adding modern API capabilities.
 
 ### Step 7: Testing Strategy Implementation
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Create a comprehensive testing strategy for the modernized application:
 
@@ -239,7 +239,7 @@ Focus on:
 
 ### Step 8: Performance Optimization
 
-**Prompt for KiloCode**:
+**Prompt for your AI coding assistant**:
 ```
 Optimize the modernized application for performance:
 
@@ -302,31 +302,31 @@ dotnet run --project PerformanceTests
 3. **Compare metrics**: Response times, memory usage, throughput
 4. **Verify functionality**: Ensure all features work correctly
 
-## Key KiloCode Capabilities Demonstrated
+## Key AI Coding Assistant Capabilities Demonstrated
 
 ### 1. Large-Scale Code Analysis
 - **What you experienced**: Analysis of entire legacy codebase
-- **What KiloCode did**: Identified patterns, anti-patterns, and modernization opportunities
+- **What your AI assistant did**: Identified patterns, anti-patterns, and modernization opportunities
 - **Learning**: AI can understand complex, interconnected codebases and suggest systematic improvements
 
 ### 2. Multi-File Coordinated Refactoring
 - **What you observed**: Changes across multiple files maintained consistency
-- **What KiloCode did**: Coordinated refactoring while preserving functionality
+- **What your AI assistant did**: Coordinated refactoring while preserving functionality
 - **Learning**: AI can handle complex refactoring scenarios that affect multiple components
 
 ### 3. Migration Assistance
 - **What you experienced**: Systematic migration from old to new technologies
-- **What KiloCode did**: Provided step-by-step migration guidance and code transformation
+- **What your AI assistant did**: Provided step-by-step migration guidance and code transformation
 - **Learning**: AI can guide complex technology migrations with minimal risk
 
 ### 4. Test Generation for Legacy Code
 - **What you saw**: Comprehensive tests generated for existing functionality
-- **What KiloCode did**: Created tests that validate current behavior before refactoring
+- **What your AI assistant did**: Created tests that validate current behavior before refactoring
 - **Learning**: AI can create safety nets for legacy code modernization
 
 ### 5. Performance Optimization
 - **What you experienced**: Systematic performance improvements
-- **What KiloCode did**: Identified bottlenecks and implemented optimizations
+- **What your AI assistant did**: Identified bottlenecks and implemented optimizations
 - **Learning**: AI can analyze and improve application performance systematically
 
 ## Expected Outcomes
@@ -366,7 +366,7 @@ After completing this scenario, you should have:
 
 #### Issue: "Breaking changes during migration"
 **Solution**:
-- Review KiloCode's migration plan carefully
+- Review your AI assistant's migration plan carefully
 - Test each migration step incrementally
 - Use feature flags to enable gradual rollout
 - Maintain backward compatibility where possible
@@ -374,14 +374,14 @@ After completing this scenario, you should have:
 #### Issue: "Performance regression after migration"
 **Solution**:
 - Run performance benchmarks before and after
-- Use KiloCode to identify performance bottlenecks
+- Use your AI assistant to identify performance bottlenecks
 - Implement caching and optimization strategies
 - Monitor application metrics continuously
 
 #### Issue: "Database migration failures"
 **Solution**:
 - Test migrations on a copy of production data
-- Use KiloCode to generate rollback scripts
+- Use your AI assistant to generate rollback scripts
 - Implement migration validation tests
 - Plan for zero-downtime deployment strategies
 
@@ -389,7 +389,7 @@ After completing this scenario, you should have:
 **Solution**:
 - Review test expectations vs. new behavior
 - Update tests to match modernized patterns
-- Use KiloCode to generate additional test scenarios
+- Use your AI assistant to generate additional test scenarios
 - Implement integration tests for critical paths
 
 ### Advanced Troubleshooting Tips

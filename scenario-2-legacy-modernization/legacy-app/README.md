@@ -307,4 +307,4 @@ This application is for **educational purposes only**. It intentionally contains
 
 ---
 
-**Ready to modernize?** Use this legacy application with KiloCode to practice AI-assisted modernization techniques!
+**Ready to modernize?** Use this legacy application with your AI coding assistant to practice AI-assisted modernization techniques!
