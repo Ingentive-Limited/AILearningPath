@@ -1,6 +1,6 @@
-# KiloCode Demo - Quick Start Guide
+# AI Coding Assistant Demo - Quick Start Guide
 
-This guide helps you get started with the KiloCode demonstration scenarios quickly.
+This guide helps you get started with the AI coding assistant demonstration scenarios quickly.
 
 ## Prerequisites Checklist
 
@@ -9,14 +9,14 @@ Before starting any scenario, ensure you have:
 - [ ] **Visual Studio 2022** (17.8+) or **VS Code** with C# extension
 - [ ] **.NET 8 SDK** (latest version) - [Download here](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [ ] **Git** for version control - [Download here](https://git-scm.com/)
-- [ ] **KiloCode extension** installed in your IDE
+- [ ] **AI coding assistant** (KiloCode, Cursor, Windsurf, or similar) installed in your IDE
 
 ## Quick Setup
 
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd KiloCodeDemo
+cd AI-Coding-Assistant-Demo
 ```
 
 ### 2. Verify Your Environment
@@ -35,10 +35,10 @@ git --version
 | New to AI development | [Scenario 1: Weather API](./scenario-1-weather-api/) | 30-45 min |
 | Experienced .NET developer | [Scenario 2: Legacy Modernization](./scenario-2-legacy-modernization/) | 60-90 min |
 
-## KiloCode Setup Tips
+## AI Coding Assistant Setup Tips
 
 ### First-Time Setup
-1. **Install the KiloCode extension** in your IDE
+1. **Install your chosen AI coding assistant** in your IDE (KiloCode, Cursor, Windsurf, etc.)
 2. **Configure your API key** (if required)
 3. **Test the connection** with a simple prompt
 4. **Review the documentation** for your IDE integration
@@ -47,15 +47,15 @@ git --version
 - **Be specific**: "Create an ASP.NET Core 8 Web API" vs "Create an API"
 - **Provide context**: Mention frameworks, databases, and requirements
 - **Iterate gradually**: Start simple, then add complexity
-- **Ask for explanations**: Request reasoning behind AI decisions
+- **Ask for explanations**: Request reasoning behind your AI assistant's decisions
 
 ## Common Issues and Quick Fixes
 
-### Issue: KiloCode not responding
-**Quick Fix**: 
+### Issue: AI assistant not responding
+**Quick Fix**:
 - Check internet connection
 - Restart your IDE
-- Verify KiloCode service status
+- Verify your AI assistant service status
 
 ### Issue: Generated code doesn't compile
 **Quick Fix**:
@@ -72,17 +72,17 @@ git --version
 ## Getting Help
 
 1. **Check scenario-specific troubleshooting** in each README
-2. **Review KiloCode documentation** for your IDE
+2. **Review your AI assistant documentation** for your IDE
 3. **Experiment with different prompt phrasings**
 4. **Start with simpler requests** and build complexity
 
 ## Success Indicators
 
 You'll know you're on the right track when:
-- [ ] KiloCode responds to your prompts with relevant code
+- [ ] Your AI assistant responds to your prompts with relevant code
 - [ ] Generated code compiles without major errors
 - [ ] You can run and test the generated applications
-- [ ] You understand the patterns KiloCode is applying
+- [ ] You understand the patterns your AI assistant is applying
 
 ---
 

@@ -1,14 +1,14 @@
-# KiloCode Demo: AI-Powered .NET Development
+# AI-Powered .NET Development Demo
 
-Welcome to the KiloCode demonstration repository! This collection of scenarios is designed to showcase how AI can accelerate and enhance .NET development workflows for developers at all skill levels.
+Welcome to this comprehensive demonstration repository! This collection of scenarios is designed to showcase how AI coding assistants like KiloCode, Cursor, or Windsurf can accelerate and enhance .NET development workflows for developers at all skill levels.
 
-## What is KiloCode?
+## What are AI Coding Assistants?
 
-KiloCode is an AI-powered development assistant that helps .NET developers write better code faster. It provides intelligent code generation, refactoring assistance, architecture guidance, and automated best practices implementation.
+AI coding assistants such as KiloCode, Cursor, and Windsurf are powerful development tools that help .NET developers write better code faster. They provide intelligent code generation, refactoring assistance, architecture guidance, and automated best practices implementation.
 
 ## Demo Scenarios Overview
 
-This repository contains two comprehensive self-guided scenarios plus live demo options that demonstrate KiloCode's capabilities across different complexity levels:
+This repository contains two comprehensive self-guided scenarios plus live demo options that demonstrate AI coding assistant capabilities across different complexity levels:
 
 ## Self-Guided Scenarios
 
@@ -43,7 +43,7 @@ This repository contains two comprehensive self-guided scenarios plus live demo 
 ### 🎯 [30-Minute Team Demo Sessions](./DEMO_OPTIONS.md)
 **Interactive presentations designed for developer teams**
 
-Choose from 5 different demo formats tailored to showcase KiloCode's capabilities in engaging, hands-on sessions:
+Choose from 5 different demo formats tailored to showcase AI coding assistant capabilities in engaging, hands-on sessions:
 - **Quick Win Demo**: Rapid API development showcase
 - **Legacy Rescue Demo**: Live modernization demonstration
 - **Architecture Assistant Demo**: AI-powered system design
@@ -62,14 +62,14 @@ Before starting any scenario, ensure you have:
 - **.NET 8 SDK** (latest version)
 - **Git** for version control
 - **Docker Desktop** (optional, for containerization demos)
-- **KiloCode extension/plugin** installed in your IDE
+- **AI coding assistant** (KiloCode, Cursor, Windsurf, or similar) installed in your IDE
 
 ### Quick Start Guide
 
 1. **Clone this repository**:
    ```bash
    git clone <repository-url>
-   cd KiloCodeDemo
+   cd AI-Coding-Assistant-Demo
    ```
 
 2. **Choose your path**:
@@ -107,18 +107,18 @@ By completing both scenarios and participating in demo sessions, you'll gain han
 - **Be specific**: Instead of "create an API," say "create a REST API for weather data with CRUD operations"
 - **Provide context**: Mention your target framework, database, and any specific requirements
 - **Iterate and refine**: Start with basic functionality and gradually add complexity
-- **Ask for explanations**: Request that KiloCode explain its decisions and recommendations
+- **Ask for explanations**: Request that your AI assistant explain its decisions and recommendations
 
 ### Best Practices
 - **Review generated code**: Always understand what the AI has created before proceeding
 - **Test incrementally**: Run and test code after each major generation or modification
 - **Version control**: Commit your progress regularly to track changes
-- **Learn from suggestions**: Pay attention to the patterns and practices KiloCode recommends
+- **Learn from suggestions**: Pay attention to the patterns and practices your AI assistant recommends
 
 ## Troubleshooting
 
 ### Common Issues
-- **KiloCode not responding**: Ensure your internet connection is stable and the service is available
+- **AI assistant not responding**: Ensure your internet connection is stable and the service is available
 - **Generated code not compiling**: Check that all required NuGet packages are installed
 - **Performance issues**: Large projects may require breaking down requests into smaller chunks
 
@@ -136,7 +136,10 @@ Found an issue or have suggestions for improvement? Please:
 
 ## Additional Resources
 
-- [KiloCode Documentation](https://kilocode.dev/docs)
+- [KiloCode Documentation](https://kilocode.com/docs)
+- [Windsurf Documentation](https://codeium.com/windsurf/docs)
+- [Cursor Documentation](https://docs.cursor.com)
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 - [.NET 8 Documentation](https://docs.microsoft.com/en-us/dotnet/)
 - [ASP.NET Core Best Practices](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/best-practices)
 - [Entity Framework Core Guide](https://docs.microsoft.com/en-us/ef/core/)

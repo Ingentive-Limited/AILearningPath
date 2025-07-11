@@ -1,26 +1,26 @@
-# KiloCode Demo - Troubleshooting Guide
+# AI Coding Assistant Demo - Troubleshooting Guide
 
-This guide provides solutions to common issues you might encounter while working through the KiloCode demonstration scenarios.
+This guide provides solutions to common issues you might encounter while working through the AI coding assistant demonstration scenarios.
 
 ## General Issues
 
-### KiloCode Extension Issues
+### AI Coding Assistant Extension Issues
 
-#### Problem: KiloCode extension not working or not responding
+#### Problem: AI coding assistant extension not working or not responding
 **Symptoms**: No response to prompts, extension appears inactive
 **Solutions**:
-1. **Check internet connection**: KiloCode requires stable internet connectivity
+1. **Check internet connection**: AI coding assistants require stable internet connectivity
 2. **Restart your IDE**: Close and reopen Visual Studio or VS Code
-3. **Verify extension installation**: Check that KiloCode is properly installed and enabled
+3. **Verify extension installation**: Check that your AI assistant is properly installed and enabled
 4. **Update the extension**: Ensure you have the latest version
-5. **Check service status**: Verify KiloCode service availability
+5. **Check service status**: Verify your AI assistant service availability
 6. **Review API key/authentication**: Ensure proper authentication is configured
 
 #### Problem: Generated code is incomplete or truncated
 **Symptoms**: Code generation stops mid-way, missing closing braces
 **Solutions**:
 1. **Break down large requests**: Split complex prompts into smaller, focused requests
-2. **Request continuation**: Ask KiloCode to "continue the previous code" or "complete the implementation"
+2. **Request continuation**: Ask your AI assistant to "continue the previous code" or "complete the implementation"
 3. **Be more specific**: Provide clearer requirements and constraints
 4. **Check token limits**: Large codebases may hit response limits
 
@@ -167,7 +167,7 @@ This guide provides solutions to common issues you might encounter while working
 ### When to Seek Help
 - Issues persist after trying suggested solutions
 - Errors are not covered in this guide
-- Need clarification on KiloCode capabilities
+- Need clarification on AI coding assistant capabilities
 - Encountering environment-specific problems
 
 ### How to Report Issues
@@ -179,7 +179,7 @@ When reporting issues, include:
 5. **Expected vs actual behavior**
 
 ### Resources for Additional Help
-- **KiloCode Documentation**: Check official documentation
+- **AI Coding Assistant Documentation**: Check official documentation for your specific tool
 - **Community Forums**: Search for similar issues
 - **GitHub Issues**: Report bugs or request features
 - **Stack Overflow**: Search for .NET and development issues

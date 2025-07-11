@@ -1,8 +1,8 @@
-# KiloCode Live Demo Options
+# AI Coding Assistant Live Demo Options
 
 **Interactive 30-minute team presentations showcasing AI-powered .NET development**
 
-This guide provides 5 different demo session formats designed to engage developer teams and showcase KiloCode's capabilities in various contexts. Each demo is structured for maximum impact and team engagement.
+This guide provides 5 different demo session formats designed to engage developer teams and showcase AI coding assistant capabilities in various contexts. Each demo is structured for maximum impact and team engagement, and can be used with KiloCode, Cursor, Windsurf, or other AI coding assistants.
 
 ---
 
@@ -13,7 +13,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - Managers evaluating productivity tools
 - Developers skeptical about AI code generation quality
 
-### 🚀 Key KiloCode Capabilities Demonstrated
+### 🚀 Key AI Coding Assistant Capabilities Demonstrated
 - **Natural Language to Code**: Convert requirements into working APIs
 - **Best Practices Automation**: Automatic implementation of .NET standards
 - **Intelligent Code Completion**: Context-aware suggestions and improvements
@@ -23,7 +23,7 @@ This guide provides 5 different demo session formats designed to engage develope
 ### ⏰ Detailed 30-Minute Timeline
 
 #### Opening (5 minutes)
-- **0-2 min**: Welcome and brief KiloCode introduction
+- **0-2 min**: Welcome and brief AI coding assistant introduction
 - **2-5 min**: Present the challenge: "Build a complete Task Management API"
   - Show requirements on screen
   - Explain what would typically take hours/days
@@ -65,7 +65,7 @@ This guide provides 5 different demo session formats designed to engage develope
 
 ### 📋 Required Preparation and Setup
 - **Technical Setup** (15 minutes before demo):
-  - Visual Studio 2022 or VS Code with KiloCode extension
+  - Visual Studio 2022 or VS Code with your AI coding assistant (KiloCode, Cursor, Windsurf, etc.)
   - .NET 8 SDK installed and verified
   - Clean workspace with no existing projects
   - Postman or similar API testing tool ready
@@ -86,7 +86,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - **Week 1**: Individual team members try Scenario 1 (Weather API)
 - **Week 2**: Team lead completes Scenario 2 (Legacy Modernization)
 - **Week 3**: Team retrospective on AI-assisted development experience
-- **Month 1**: Implement KiloCode in one real project as pilot
+- **Month 1**: Implement your chosen AI coding assistant in one real project as pilot
 
 ---
 
@@ -97,7 +97,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - Architects planning modernization initiatives
 - Developers concerned about migration complexity and risk
 
-### 🚀 Key KiloCode Capabilities Demonstrated
+### 🚀 Key AI Coding Assistant Capabilities Demonstrated
 - **Large-Scale Code Analysis**: Understanding and assessing legacy systems
 - **Systematic Refactoring**: Step-by-step modernization approach
 - **Technology Migration**: .NET Framework to .NET 8 conversion
@@ -116,7 +116,7 @@ This guide provides 5 different demo session formats designed to engage develope
 #### Live Modernization (20 minutes)
 - **5-8 min**: Legacy code analysis
   - Prompt: "Analyze this .NET Framework application and identify modernization opportunities"
-  - Show KiloCode's assessment of dependencies, patterns, and risks
+  - Show your AI assistant's assessment of dependencies, patterns, and risks
   - Highlight automatic detection of outdated practices
 
 - **8-13 min**: Project file and configuration modernization
@@ -167,7 +167,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - **Business Case**: Clear ROI and benefits of modernization
 
 ### 🔄 Follow-up Suggestions
-- **Immediate**: Legacy code audit using KiloCode analysis
+- **Immediate**: Legacy code audit using AI assistant analysis
 - **Week 1**: Pilot modernization of one small legacy component
 - **Month 1**: Develop comprehensive modernization roadmap
 - **Quarter 1**: Execute phased modernization plan
@@ -181,7 +181,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - Teams planning new system implementations
 - Organizations adopting microservices or distributed architectures
 
-### 🚀 Key KiloCode Capabilities Demonstrated
+### 🚀 Key AI Coding Assistant Capabilities Demonstrated
 - **Architecture Planning**: AI-assisted system design and decision making
 - **Pattern Implementation**: Automatic application of architectural patterns
 - **Cross-Cutting Concerns**: Logging, monitoring, security, and resilience
@@ -263,7 +263,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - Technical leads responsible for code standards
 - Teams implementing DevOps and continuous improvement practices
 
-### 🚀 Key KiloCode Capabilities Demonstrated
+### 🚀 Key AI Coding Assistant Capabilities Demonstrated
 - **Code Quality Analysis**: Automatic detection of code smells and issues
 - **Refactoring Excellence**: Systematic code improvement and optimization
 - **Testing Automation**: Comprehensive test generation and coverage
@@ -345,7 +345,7 @@ This guide provides 5 different demo session formats designed to engage develope
 - Agile teams focused on sprint productivity and delivery
 - Organizations implementing DevOps and continuous delivery practices
 
-### 🚀 Key KiloCode Capabilities Demonstrated
+### 🚀 Key AI Coding Assistant Capabilities Demonstrated
 - **Collaborative Development**: Multiple developers working with AI assistance
 - **Sprint Acceleration**: Rapid feature development and delivery
 - **Knowledge Sharing**: AI-assisted code documentation and explanation
@@ -474,4 +474,4 @@ This guide provides 5 different demo session formats designed to engage develope
 
 ---
 
-**Ready to showcase the future of .NET development?** Choose the demo format that best fits your audience and start demonstrating the power of AI-assisted development with KiloCode!
+**Ready to showcase the future of .NET development?** Choose the demo format that best fits your audience and start demonstrating the power of AI-assisted development with your AI coding assistant!

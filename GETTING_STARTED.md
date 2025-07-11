@@ -1,8 +1,8 @@
-# Getting Started with KiloCode Demo
+# Getting Started with AI Coding Assistant Demo
 
 **Quick 5-minute overview for developers who want to jump right in**
 
-Welcome to the KiloCode demonstration repository! This guide will get you up and running with AI-assisted .NET development in just a few minutes.
+Welcome to this comprehensive demonstration repository! This guide will get you up and running with AI-assisted .NET development in just a few minutes using AI coding assistants like KiloCode, Cursor, or Windsurf.
 
 ## What is This?
 
@@ -10,7 +10,7 @@ This repository contains two comprehensive self-guided scenarios plus live demo 
 
 1. **🌤️ Weather API** (30-45 min) - Build a complete REST API with Entity Framework
 2. **🔄 Legacy Modernization** (60-90 min) - Modernize a .NET Framework app to .NET 8
-3. **🎯 Live Demo Sessions** (30 min each) - Interactive team presentations showcasing KiloCode capabilities
+3. **🎯 Live Demo Sessions** (30 min each) - Interactive team presentations showcasing AI coding assistant capabilities
 
 ## Prerequisites (2 minutes)
 
@@ -19,7 +19,7 @@ Before you start, ensure you have:
 - ✅ **Visual Studio 2022** (17.8+) or **VS Code** with C# extension
 - ✅ **.NET 8 SDK** (latest version)
 - ✅ **Git** for version control
-- ✅ **KiloCode extension** installed in your IDE
+- ✅ **AI coding assistant** (KiloCode, Cursor, Windsurf, or similar) installed in your IDE
 - ✅ **Docker Desktop** (optional, for containerization demos)
 
 ### Quick Setup Check
@@ -48,7 +48,7 @@ git --version            # Any recent version
 ### 🎯 Ready for Team Collaboration?
 **Try Live Demo Sessions**
 - Interactive team presentations
-- Real-time KiloCode demonstrations
+- Real-time AI coding assistant demonstrations
 - Engaging Q&A and hands-on activities
 - **Time**: 30 minutes per session
 
@@ -57,7 +57,7 @@ git --version            # Any recent version
 ### 1. Clone and Navigate
 ```bash
 git clone <repository-url>
-cd KiloCodeDemo
+cd AI-Coding-Assistant-Demo
 ```
 
 ### 2. Pick Your Path
@@ -74,14 +74,14 @@ cd scenario-2-legacy-modernization
 
 ### 3. Follow the Starter Prompts
 Each scenario includes:
-- **`starter-prompts.md`** - Exact prompts to use with KiloCode
+- **`starter-prompts.md`** - Exact prompts to use with your AI coding assistant
 - **`expected-structure.md`** - What your final project should look like
 - **Additional helpers** - Sample requests, checklists, and templates
 
-### 4. Use KiloCode
-1. Open your IDE with KiloCode extension
+### 4. Use Your AI Coding Assistant
+1. Open your IDE with your AI coding assistant (KiloCode, Cursor, Windsurf, etc.)
 2. Copy the first prompt from `starter-prompts.md`
-3. Paste it into KiloCode
+3. Paste it into your AI assistant
 4. Follow the step-by-step instructions
 
 ## What You'll Learn
@@ -123,7 +123,7 @@ Each scenario includes:
 
 ### 🚨 Troubleshooting
 - **Code won't compile?** Check NuGet packages are installed
-- **KiloCode not responding?** Verify internet connection
+- **AI assistant not responding?** Verify internet connection
 - **Unexpected results?** Try rephrasing your prompt
 - **Need help?** Check the troubleshooting section in each scenario
 
@@ -131,7 +131,7 @@ Each scenario includes:
 
 ### Essential Files in Each Scenario
 - **`README.md`** - Comprehensive scenario guide
-- **`starter-prompts.md`** - Copy-paste prompts for KiloCode
+- **`starter-prompts.md`** - Copy-paste prompts for your AI coding assistant
 - **`expected-structure.md`** - Final project structure reference
 
 ### Scenario-Specific Helpers
